@@ -1,0 +1,37 @@
+name: Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -CeEuo pipefail {0}
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install VirtualBox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y virtualbox wget gunzip
+      - name: build
+        run: |
+          bash build.sh
+      - name: release nightly
+        uses: ncipollo/release-action@v1
+        with:
+          tag: nightly
+          artifacts: "*.vdi"
+          allowUpdates: true
+          makeLatest: false
+          token: ${{ secrets.GITHUB_TOKEN }}
