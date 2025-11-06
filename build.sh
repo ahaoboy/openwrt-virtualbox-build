@@ -1,8 +1,7 @@
 URLS=(
   # "https://downloads.openwrt.org/releases/24.10.4/targets/armsr/armv7/openwrt-24.10.4-armsr-armv7-generic-squashfs-combined-efi.img.gz"
   # "https://downloads.openwrt.org/releases/24.10.4/targets/armsr/armv8/openwrt-24.10.4-armsr-armv8-generic-squashfs-combined-efi.img.gz"
-  # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined-efi.img.gz"
-
+  "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined-efi.img.gz"
   "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined.img.gz"
   "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined.img.gz"
 
@@ -49,3 +48,4 @@ for file in *.img; do
 done
 
 
+ls -lh
