@@ -1,6 +1,6 @@
 URLS=(
   "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined.img.gz"
-  "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined-efi.img.gz"
+  # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined-efi.img.gz"
 )
 
 for url in "${URLS[@]}"; do
@@ -34,7 +34,7 @@ for file in *.img; do
   fdisk -l $file
 
   VBoxManage convertfromraw --format VDI $file $base.vdi
-  VBoxManage modifyhd --resize 512 $base.vdi
+  # VBoxManage modifyhd --resize 512 $base.vdi
 
 done
 
