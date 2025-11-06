@@ -43,7 +43,7 @@ for file in *.img; do
   fdisk -l $file
 
   VBoxManage convertfromraw --format VDI $file $base.vdi
-  VBoxManage modifyhd --resize 1024 $base.vdi
+  # VBoxManage modifyhd --resize 1024 $base.vdi
 
 done
 
