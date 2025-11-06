@@ -19,6 +19,20 @@ for file in *.img; do
   echo $file
   base="${file%.gz}"
 
+
+  dd if=/dev/zero bs=1M count=512 >> $file
+  # parted $file
+  # print
+  # resizepart 2 100%
+  # print
+  # quit
+  parted --script $file \
+    print \
+    resizepart 2 100% \
+    print
+
+  fdisk -l $file
+
   VBoxManage convertfromraw --format VDI $file $base.vdi
   VBoxManage modifyhd --resize 512 $base.vdi
 
