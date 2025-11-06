@@ -29,7 +29,7 @@ for file in *.img; do
   base="${file%.gz}"
 
 
-  dd if=/dev/zero bs=1M count=512 >> $file
+  dd if=/dev/zero bs=1M count=256 >> $file
   # parted $file
   # print
   # resizepart 2 100%
@@ -42,8 +42,10 @@ for file in *.img; do
 
   fdisk -l $file
 
+  ls -lh
+
   VBoxManage convertfromraw --format VDI $file $base.vdi
-  # VBoxManage modifyhd --resize 1024 $base.vdi
+  VBoxManage modifyhd --resize 512 $base.vdi
 
 done
 
