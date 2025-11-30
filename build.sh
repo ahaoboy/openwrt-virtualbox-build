@@ -23,13 +23,13 @@ for url in "${URLS[@]}"; do
 done
 
 
-
+TOTAL_MB=8192
 for file in *.img; do
   echo $file
   base="${file%.gz}"
 
 
-  dd if=/dev/zero bs=1M count=8192 >> $file
+  dd if=/dev/zero bs=1M count=$TOTAL_MB >> $file
   # parted $file
   # print
   # resizepart 2 100%
@@ -45,7 +45,7 @@ for file in *.img; do
   ls -lh
 
   VBoxManage convertfromraw --format VDI $file $base.vdi
-  VBoxManage modifyhd --resize 512 $base.vdi
+  VBoxManage modifyhd --resize $TOTAL_MB $base.vdi
 
 done
 
