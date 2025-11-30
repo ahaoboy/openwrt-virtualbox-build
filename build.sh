@@ -29,7 +29,7 @@ for file in *.img; do
   base="${file%.gz}"
 
 
-  dd if=/dev/zero bs=1M count=4096 >> $file
+  dd if=/dev/zero bs=1M count=8192 >> $file
   # parted $file
   # print
   # resizepart 2 100%
