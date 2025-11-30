@@ -1,8 +1,8 @@
 URLS=(
   # "https://downloads.openwrt.org/releases/24.10.4/targets/armsr/armv7/openwrt-24.10.4-armsr-armv7-generic-squashfs-combined-efi.img.gz"
   # "https://downloads.openwrt.org/releases/24.10.4/targets/armsr/armv8/openwrt-24.10.4-armsr-armv8-generic-squashfs-combined-efi.img.gz"
-  "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined-efi.img.gz"
-  "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined.img.gz"
+  # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined-efi.img.gz"
+  # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-squashfs-combined.img.gz"
   "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined.img.gz"
 
   # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/generic/openwrt-24.10.4-x86-generic-generic-squashfs-combined.img.gz"
@@ -11,6 +11,8 @@ URLS=(
   # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined.img.gz"
   # "https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-24.10.4-x86-64-generic-ext4-combined-efi.img.gz"
 )
+
+df -h
 
 for url in "${URLS[@]}"; do
   filename=$(basename "$url")
