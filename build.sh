@@ -25,14 +25,15 @@ for url in "${URLS[@]}"; do
   gunzip -f "$filename"
 done
 
-
-TOTAL_MB=8192
+BASE_MB=256
+WRITE_MB=8192
+TOTAL_MB=$((WRITE_MB + $BASE_MB))
 for file in *.img; do
   echo $file
   base="${file%.gz}"
 
 
-  dd if=/dev/zero bs=1M count=$TOTAL_MB >> $file
+  dd if=/dev/zero bs=1M count=$WRITE_MB >> $file
   # parted $file
   # print
   # resizepart 2 100%
@@ -48,9 +49,8 @@ for file in *.img; do
   ls -lh
 
   VBoxManage convertfromraw --format VDI $file $base.vdi
+  VBoxManage modifyhd --resize $TOTAL_MB $base.vdi
   rm $file
-  # VBoxManage modifyhd --resize $TOTAL_MB $base.vdi
-
 done
 
 
