@@ -45,7 +45,7 @@ for file in *.img; do
   ls -lh
 
   VBoxManage convertfromraw --format VDI $file $base.vdi
-  VBoxManage modifyhd --resize $TOTAL_MB $base.vdi
+  # VBoxManage modifyhd --resize $TOTAL_MB $base.vdi
 
 done
 
